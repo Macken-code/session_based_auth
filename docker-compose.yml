@@ -1,0 +1,25 @@
+version: "3"
+services: 
+  db:
+    image: mariadb
+    volumes:
+      - db_data:/var/lib/mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: equipment_inventory
+  api:
+    depends_on:
+      - db
+    image: inventory_api
+    ports:
+      - 3010:3010
+    restart: always
+    environment:
+      equipment_inventory_host: db
+      equipment_inventory_jwtPrivateKey: Boudle_Dok89
+      equipment_inventory_dbname: equipment_inventory
+      equipment_inventory_username: root
+      equipment_inventory_password: root
+volumes:
+  db_data: {}

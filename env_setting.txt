@@ -1,0 +1,7 @@
+$env:host="localhost"
+$env:jwtPrivateKey= 'Boudle_Dok89'
+$env:dbname="template_api"
+$env:username="root"
+$env:password="root"
+$env:dbport="3306"
+
